@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Mobile App</title>
+    <style>
+        /* Basic styling for the button */
+        #openAppButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="openAppButton">Open Mobile App</button>
+
+    <script>
+        document.getElementById('openAppButton').addEventListener('click', function () {
+            var data = {
+
+                "launchmode": 3,
+
+                "frmName": "frmHomedptAccount",
+
+                "appName": "ArrangementsMA",
+
+                "launchParam": "SecurityApp",
+
+            };
+
+
+
+            var additonalParam = {
+
+
+
+            };
+
+
+
+            var datajsonObj = encodeURIComponent(JSON.stringify(data));
+
+            var additonajsonObj = encodeURIComponent(JSON.stringify(additonalParam));
+
+
+
+            window.location.href = 'com.sinopac.newmobilebank.sit://?callbackDeeplinkSchema=com.sinopac.thirdpartyapp&inApp=N&callbackDeeplinkParam=' + datajsonObj + '&additonalParam=' + additonajsonObj;
+
+
+
+            // Replace 'yourapp://path' with the appropriate deep link URL for your mobile app
+            //var deepLinkUrl = 'yourapp://path';
+
+            // Attempt to open the app using the deep link
+            //window.location.href = deepLinkUrl;
+        });
+    </script>
+
+</body>
+
+</html>
