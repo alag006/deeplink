@@ -26,8 +26,8 @@
         document.getElementById('openAppButton').addEventListener('click', function () {
             var data = {
             "launchmode": 3,
-            "frmName": "frmHomedptAccount",
-            "appName": "ArrangementsMA",
+            "frmName": "frmConformationMessages",
+            "appName": "InvestmentsMA",
             "launchParam": "SinoTrade",
             "externalSiteUrl": "",
             "externalBrowser": null,
@@ -36,7 +36,7 @@
             var additonalParam = {}
             var datajsonObj = encodeURIComponent(JSON.stringify(data));
             var additonajsonObj = encodeURIComponent(JSON.stringify(additonalParam));
-            window.location.href = 'com.sinopac.newmobilebank.sit://?callbackDeeplinkSchema=com.sinopac.thirdpartyapp&inApp=N&callbackDeeplinkParam=' + datajsonObj + '&additonalParam=' + additonajsonObj;
+            window.location.href = 'com.sinopac.newmobilebank.sit://?callbackDeeplinkSchema=&inApp=N&callbackDeeplinkParam=' + datajsonObj + '&additonalParam=' + additonajsonObj;
         });
     </script>
 
