@@ -1,45 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Mobile App</title>
-    <style>
-        /* Basic styling for the button */
-        #openAppButton {
-            padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+<title>Google Maps Street View Test</title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<style>
+   #map {
+     width: 400px;
+     height: 400px;
+   }
+</style>
 </head>
-
 <body>
-    <button id="openAppButton">Open Mobile App</button>
-
-    <script>
-        document.getElementById('openAppButton').addEventListener('click', function () {
-            var data = {
-            "launchmode": 3,
-            "frmName": "",
-            "appName": "",
-            "launchParam": "",
-            "externalSiteUrl": "https://bank.sinopac.com/sinopacBT/webevents/ec/exchange/index.html?openApp=currswap&openExternalBrowser=1",
-            "externalBrowser": true,
-            "additionalParameter": {},
-            };
-            var additonalParam = {}
-            var datajsonObj = encodeURIComponent(JSON.stringify(data));
-            var additonajsonObj = encodeURIComponent(JSON.stringify(additonalParam));
-            window.location.href = 'com.sinopac.newmobilebank.sit://?callbackDeeplinkSchema=&inApp=N&callbackDeeplinkParam=' + datajsonObj + '&additonalParam=' + additonajsonObj;
-        });
-    </script>
-
+<div id="map"></div>
+<script>
+   function initMap() {
+     const map = new google.maps.Map(document.getElementById('map'), {
+       center: { lat: 37.7749, lng: -122.4194 }, // Example location
+       zoom: 15
+     });
+     const panorama = new google.maps.StreetViewPanorama(
+       document.getElementById('map'),
+       {
+         position: { lat: 37.7749, lng: -122.4194 }, // Example location
+         pov: { heading: 0, pitch: 0 },
+         zoom: 1,
+         address: '1600 Amphitheatre Parkway, Mountain View, CA 94043, USA'
+       }
+     );
+     map.setStreetView(panorama);
+   }
+</script>
+<script async defer
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJ5VE8Iny4SrNPhJHNQL2g3BPbej2PRpc&callback=initMap"></script>
 </body>
-
 </html>
